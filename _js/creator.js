@@ -28,46 +28,48 @@
 //  	}
   }
    
-   function resizeCanvas(x) {
-	var imageObj=x;
-   	var context=$("#myCanvas")[0].getContext('2d');
-   	imageObj.src = '_reso/_image/'+fileName;
-   	windowWidth = window.innerWidth;
-   	//if(context.canvas.width<=700){
-   	context.canvas.height = (3*windowWidth)/4;
-   	
-   	  // console.log("windowInner width="+windowWidth);
-   	 
-   	// console.log("Image Obj= "+imageObj.data.msg.src);
-	//context.drawImage(imageObj, 0, 0,imageObj.width,imageObj.height);
-	context.drawImage(imageObj.data.msg, 0, 0,context.canvas.width,context.canvas.height);
-		console.log("div height="+$("#container").height());
-    //document.querySelector("p").innerHTML="image width="+context.canvas.width;
-    // console.log("sent width="+windowWidth);
-     // console.log("sent calcu="+context.canvas.height);
- 	canvasSizer(windowWidth);
-   	textWritter("top text","bottom text");
-   	//}
+   function resizeCanvas(imageObj) {
+	// var imageObj=x;
+   	// var context=$("#myCanvas")[0].getContext('2d');
+   	// imageObj.src = '_reso/_image/'+fileName;
+   	// windowWidth = window.innerWidth;
+//    	
+   	// context.canvas.height = (3*windowWidth)/4;
+//    	
+//    	
+	// context.drawImage(imageObj.data.msg, 0, 0,context.canvas.width,context.canvas.height);
+		// console.log("div height="+$("#container").height());
+//     
+ 	// canvasSizer(windowWidth);
+   	// textWritter("top text","bottom text");
+   //	console.log(imageObj);
+drawcanvas(imageObj.data.msg);
+
 	}
   
  
-   function drawcanvas(x){
-   	var imageObj=x;
+   function drawcanvas(imageObj){
+   	// var imageObj=x;
 	var context=$("#myCanvas")[0].getContext('2d');
   	imageObj.src = '_reso/_image/'+fileName;
-  		context.canvas.height = 3*context.canvas.width/4;
-  		$("#container").css("height",(3*imageObj.height)/4+"px");
-  		console.log("canvas height= "+context.canvas.height);
-  		console.log("image height= "+imageObj.height);
-  		
-  		imageObj.onload = function() {
-     	context.drawImage(imageObj, 0, 0,context.canvas.width,(3*context.canvas.width)/4);
-    	//context.drawImage(imageObj, 0, 0,imageObj.width,imageObj.height);
+  		// context.canvas.height = 3*context.canvas.width/4;
+  		// $("#container").css("height",(3*imageObj.height)/4+"px");
+  		// console.log("canvas height= "+context.canvas.height);
+  		// console.log("image height= "+imageObj.height);
+			$("#myCanvas,#container,#myCanvas2").width(window.innerWidth);
+			$("#myCanvas,#container,#myCanvas2").height((3*window.innerWidth)/4);
+			context.canvas.width=$("#myCanvas").width();
+			context.canvas.height=$("#myCanvas").height();
+			
+			var canWidth=$("#myCanvas").width();
+			var canHeight=$("#myCanvas").height();
+  			imageObj.onload = function() {
+  			context.drawImage(imageObj, 0, 0,canWidth,canHeight);
+     	//context.drawImage(imageObj, 0, 0,context.canvas.width,(3*context.canvas.width)/4);
+    	
   		};
 	
-   	// console.log(context);
-	// console.log("imageheight="+imageObj.height," imagewidth="+imageObj.width);
-	// console.log("canvasheight="+context.canvas.height," canvaswidth="+3*context.canvas.width/4);
+   	
 	}
       
         
