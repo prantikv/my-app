@@ -1,0 +1,27 @@
+{ "memes" : [
+ 
+  {
+    "Title":"Jonathan G. Ferrar II",
+    "topText":"Jonathan_Ferrar",
+    "bottom text":"",
+    "file":"akshay_02.jpg"
+  },
+  {
+    "Title":"Hillary Hewitt Goldwynn-Post",
+    "topText":"Hillary_Goldwynn",
+    "bottom text":"New York University",
+    "file":"akshay_03.jpg"
+  },
+  {
+    "Title":"Hassum Harrod",
+    "topText":"Hassum_Harrod",
+    "bottom text":"Art College in New Dehli",
+    "file":"akshay_04.jpg"
+  },
+  {
+    "Title":"Jennifer Jerome",
+    "topText":"Jennifer_Jerome",
+    "bottom text":"New Orleans, LA",
+    "file":"akshay_05.jpg"
+  }
+]}

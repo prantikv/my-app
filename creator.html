@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Desi Meme Generator</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="_css/Dark_meme.min.css" />
+  <link rel="stylesheet" href="_css/jquery.mobile.icons-1.4.5.min.css" />
+  <link rel="stylesheet" href="_css/jquery.mobile.structure-1.4.5.min.css" />
+  <script type="text/javascript" src="_js/jquery.min.js"></script>
+  <script type="text/javascript" src="_js/jquery.mobile-1.4.5.min.js"></script> 
+ <style>
+ #container{
+ 	border:1px solid red;
+ 		width:100%;
+ 		/*overflow:hidden;*/
+ 	position: relative;
+ 	
+ }
+ 	#myCanvas{
+ 		border:4px solid green;
+ 		width:100%;
+ 		
+ 		position: absolute;
+ 	}
+ 	#myCanvas2{
+ 		border:3px solid yellow;
+ 		width:100%;
+ 		position: absolute;
+ 	}
+ 	
+ </style> 
+</head>
+
+<body>
+<div data-role="page">
+
+	<div data-role="header">
+		<a href="index.html" data-role="button" data-icon="arrow-l"  class="ui-btn-left" rel="external">Back</a>
+		<h1>Page Title</h1>
+		<a id="createbtn" href="#created"  data-icon="check"  class="ui-btn-right" >Create</a>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<div id="container">
+		<canvas id="myCanvas">Your Phone is Not Compatible With the APP.</canvas>
+		<canvas id="myCanvas2">Your Phone is Not Compatible With the APP.</canvas>
+		</div>
+		<div>
+			<label for="toptext">Top Text:</label>
+			<input type="text" name="name" id="toptext" placeholder="Top Text" value="" data-mini="true" />
+			<label for="bottomtext">Bottom Text:</label>
+			<input type="text" name="name" id="bottomtext" placeholder="Bottom Text" value="" data-mini="true" />
+		</div>
+		<!-- <p></p>
+		<img src="_reso/_images/meme_0.jpg"> -->
+	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed" >
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+
+
+<div data-role="page" id="created">
+		<div data-role="header">
+		<h1>Have Fun!!!</h1>
+	</div><!-- /header -->
+<div data-role="content" >	
+	<div id="imgHolder"></div>
+	</div>
+<div data-role="footer" data-position="fixed" >
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div>
+<script type="text/javascript" src="_js/creator.js"></script>
+</body>
+</html>

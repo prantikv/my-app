@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Desi Meme Generator</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="_css/Dark_meme.min.css" />
+  <link rel="stylesheet" href="_css/jquery.mobile.icons-1.4.5.min.css" />
+  <link rel="stylesheet" href="_css/jquery.mobile.structure-1.4.5.min.css" />
+  
+
+  <script type="text/javascript" src="_js/jquery.min.js"></script>
+  <script type="text/javascript" src="_js/jquery.mobile-1.4.5.min.js"></script> 
+  
+</head>
+<style>
+body{
+	text-transform:capitalize;
+}
+	li img {
+    position:absolute;
+    top:0;
+    bottom:0;
+     margin:auto; 
+    height:80px; 
+  
+    	border-radius: 10px;
+}
+img{
+		height: 80px;
+		width:80px;
+	}
+</style>
+<body>
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>Page Title</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" >	
+		<ul class="content"  data-role="listview" data-inset="true" data-filter="true">
+			<li><a href="creator.html?name='meme_0'" rel="external"><img src="_reso/_image/akshay_02.jpg" /><h2>headder etx</h2></a></li>
+			<li><a href="creator.html?name='meme_2'"rel="external"><img src="_reso/_image/akshay_03.jpg" /></a></li>
+			<li><a href="creator.html?name='meme_3'"rel="external"><img src="_reso/_image/akshay_04.jpg" /></a></li>
+			<li><a><img src="_reso/_images/meme_4.jpg" /></a></li>
+			
+		</ul>		
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+<script id="speakerstpl" type="text/template">
+
+			{{#memes}}
+			<li  class="ui-li-has-thumb"><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" rel="external"  href="creator.html?name='{{file}}'">
+				<img src="_reso/_image/{{file}}" alt="Photo of {{Title}}" />
+				<h3>{{Title}}</h3>
+			<h4>{{topText}}</h4>
+			<p>{{bottom text}}</p>
+			</a></li>
+		
+		
+	{{/memes}}
+	
+</script>
+
+<script type="text/javascript" src="_js/mustache.js"></script>
+
+<script type="text/javascript" src="_js/index.js"></script>
+</body>
+</html>
