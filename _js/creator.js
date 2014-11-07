@@ -7,125 +7,114 @@
 	//console.log(fileName);
 		
 		
-   // function getCtx(id){
-   	// var canvas = document.getElementById(id);
-  	// var context = canvas.getContext('2d');
-  	// console.log(canvas);
-  	// //console.log($('#'+id+''));
-  	// return context;
-   // }
-      
-    
-  function canvasSizer(width){
-  //	if(width<=700){
-  	var context= $("#myCanvas2")[0].getContext('2d');
-  	 console.log("recived width"+width);
-	context.canvas.height = (3*width)/4;
-  	$("#container").css("height",context.canvas.height+"px");
-	 // console.log("div height="+$("#container").height());
-  	console.log("calculated width="+(3*width)/4);
-  	// console.log("canvas height="+context.canvas.height);
-//  	}
-  }
+       
+
    
    function resizeCanvas(imageObj) {
-	// var imageObj=x;
-   	// var context=$("#myCanvas")[0].getContext('2d');
-   	// imageObj.src = '_reso/_image/'+fileName;
-   	// windowWidth = window.innerWidth;
-//    	
-   	// context.canvas.height = (3*windowWidth)/4;
-//    	
-//    	
-	// context.drawImage(imageObj.data.msg, 0, 0,context.canvas.width,context.canvas.height);
-		// console.log("div height="+$("#container").height());
-//     
- 	// canvasSizer(windowWidth);
-   	// textWritter("top text","bottom text");
-   //	console.log(imageObj);
-drawcanvas(imageObj.data.msg);
-
+		drawcanvas(imageObj.data.msg);
+		textWritter();
 	}
   
  
    function drawcanvas(imageObj){
-   	// var imageObj=x;
+   	
 	var context=$("#myCanvas")[0].getContext('2d');
   	imageObj.src = '_reso/_image/'+fileName;
-  		// context.canvas.height = 3*context.canvas.width/4;
-  		// $("#container").css("height",(3*imageObj.height)/4+"px");
-  		// console.log("canvas height= "+context.canvas.height);
-  		// console.log("image height= "+imageObj.height);
-			$("#myCanvas,#container,#myCanvas2").width(window.innerWidth);
-			$("#myCanvas,#container,#myCanvas2").height((3*window.innerWidth)/4);
-			context.canvas.width=$("#myCanvas").width();
-			context.canvas.height=$("#myCanvas").height();
-			
-			var canWidth=$("#myCanvas").width();
-			var canHeight=$("#myCanvas").height();
-  			imageObj.onload = function() {
-  			context.drawImage(imageObj, 0, 0,canWidth,canHeight);
-     	//context.drawImage(imageObj, 0, 0,context.canvas.width,(3*context.canvas.width)/4);
-    	
-  		};
+  		
+	$("#myCanvas,#container,#myCanvas2").width(window.innerWidth);
+	$("#myCanvas,#container,#myCanvas2").height((3*window.innerWidth)/4);
+	context.canvas.width=$("#myCanvas").width();
+	context.canvas.height=$("#myCanvas").height();
+		
+	var canWidth=$("#myCanvas").width();
+	var canHeight=$("#myCanvas").height();
+	  	imageObj.onload = function() {
+	  	context.drawImage(imageObj, 0, 0,canWidth,canHeight);
+	 	};
 	
-   	
-	}
+}
       
         
     function textWritter(tt,bt){
   		var context= $("#myCanvas2")[0].getContext('2d');
-  		
+  		//get fresh dimentions of canvas 1 and set them on canvas 2
+  		context.canvas.width=$("#myCanvas").width();
+		context.canvas.height=$("#myCanvas").height();
+		//get data from input fields
   		var topTxt=$("#toptext").val();
   		var bottomTxt=$("#bottomtext").val();
-  		
+  		//check to see if field are empty of undefined
   		topTxt =(topTxt.length==0||topTxt===undefined)?"top text":topTxt;
   		bottomTxt =(bottomTxt.length==0||bottomTxt===undefined)?"bottom text":bottomTxt;
-  	//	console.log(topTxt);
-  		 		
+  	
+  		//clear the canvas	 		
   		context.clearRect (0,0,context.canvas.width,context.canvas.height);
-  			
+  		//set styles
     	context.strokeStyle = "#FFffff";
     	context.fillStyle = "#FFffff";
-    	//context.fillStyle="white";
-    	context.font="50px verdana";
+    	context.font="bold 25px verdana";
     	context.textBaseline="top";
     	context.textAlign = "center";
-    	//console.log(context.canvas.width);
-    	//console.log(context.canvas.height);
     	
+    	//calculat points based on the canvas size
     	var startPointx1=(context.canvas.width*5)/100;
-    	var startPointy1=(context.canvas.height*5)/100;
+    	var startPointy1=(context.canvas.height*2)/100;
     	var centerx=context.canvas.width/2;
   		
   		var endPointx=(context.canvas.width*90)/100;
     	var endPointy=(context.canvas.height*90)/100
-  		//context.strokeText(bottomTxt,100,100);
   		
+  		//write the top text
   		context.fillText(topTxt,centerx,startPointy1,endPointx,startPointy1,endPointx);
-  		
+  		//write the bottom text
   		context.fillText(bottomTxt,centerx,endPointy,endPointx,startPointy1,endPointx);
-  		
-	  	//context.fillRect(startPointx1,startPointy1,endPointx,endPointy);
- 		
+  	
+  		 		
 }
+  
+function drawFinally(){
+	var context= $("#myCanvas")[0].getContext('2d');
+	var canvas2ref=document.getElementById("myCanvas2");
+	
+	var newPat = context.createPattern(canvas2ref,"repeat");
+ 	console.log(canvas2ref);
+ 	context.fillStyle=newPat;
+ 	context.rect(0,0,context.canvas.width,context.canvas.height);
+
+	context.fill(); 
+	// var mask=context.createPattern($("#myCanvas")[0],"repeat");
+	// context.fillRect(mask,0,0,context.canvas.width,context.canvas.height);
+}  
+  
   
 $("#bottomtext,#toptext").on("keyup",textWritter);
  
+    function downloadCanvas(link, canvasId, filename) {
+    link.href = document.getElementById(canvasId).toDataURL();
+    link.download = filename;
     
-      
+    
+}
+	$("#download").on("click", function() {
+    downloadCanvas(this, 'myCanvas', 'test.png');
+});
+   
 $(document).on('pagebeforeshow','#created', function () {
 	var image = new Image();
-	rawData=document.getElementById('myCanvas2');
+	drawFinally();
+	rawData=document.getElementById('myCanvas');
+	
 	console.log(rawData);
-	//image.src = rawData;
-	//$("#imgHolder").html(rawData.toDataURL());
+	
   		image.onload=function()
   		{
   		//document.getElementById("#imgHolder").appendChild(image);
 		$("#imgHolder").html(image);
+		//window.open(image.src);
+		
   		};
   	image.src=rawData.toDataURL();
+  	downloadCanvas(this, 'myCanvas', 'test.png');
 	});
 
    
