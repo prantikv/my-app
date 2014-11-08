@@ -19,7 +19,7 @@
    function drawcanvas(imageObj){
    	
 	var context=$("#myCanvas")[0].getContext('2d');
-  	imageObj.src = 'reso/_image/'+fileName;
+  	imageObj.src = 'reso/image/'+fileName;
   		
 	$("#myCanvas,#container,#myCanvas2").width(window.innerWidth);
 	$("#myCanvas,#container,#myCanvas2").height((3*window.innerWidth)/4);
@@ -117,6 +117,13 @@ $(document).on('pagebeforeshow','#created', function () {
   	downloadCanvas(this, 'myCanvas', 'test.png');
 	});
 
+$(window).on("navigate", function (event, data) {
+  var direction = data.state.direction;
+  if (direction == 'back') {
+   window.history.back();
+  }  
+  
+ }); 
    
        
 $("document").ready(function(){	
