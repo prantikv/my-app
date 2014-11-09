@@ -74,13 +74,7 @@
   		//write the bottom text
   		context2.fillText(bottomTxt,centerx,endPointy,endPointx,startPointy1,endPointx);
   			 
-  		 	context2.fillRect(0,0,10,10);
-  		 	context2.stroke();
-  	
-  		 	var context1= $("#myCanvas")[0].getContext('2d');
-  		 		context2.fillStyle = "#00ff00";	
-  		 	context1.fillRect(0,0,10,10);
-  		 	
+  		  		 	
 }
   
 function drawFinally(){
