@@ -37,7 +37,8 @@
       
         
     function textWritter(){
-  		var context2= $("#myCanvas2")[0].getContext('2d');
+  		
+      var context2= $("#myCanvas2")[0].getContext('2d');
   		//get fresh dimentions of canvas 1 and set them on canvas 2
   		context2.canvas.width=$("#myCanvas").width();
 	  	context2.canvas.height=$("#myCanvas").height();
@@ -76,15 +77,18 @@
 
   		// //write the bottom text
   		// context2.fillText(bottomTxt,centerx,endPointy,endPointx,startPointy1,endPointx);
-  			 
-  		 	context2.fillRect(0,0,10,10);
+  			 context2.fillStyle = "#00ff00"; 
+  		 	context2.fillRect(0,0,context2.canvas.width,context2.canvas.height);
   		
   	
-  		 	var context1= $("#myCanvas")[0].getContext('2d');
-  		 		context1.fillStyle = "#00ff00";	
-  		  context1.fillRect(0,0,12,12);
+  		 	// var context1= $("#myCanvas")[0].getContext('2d');
+  		 	// context1.fillStyle = "#00ff00";	
+  		  // context1.fillRect(0,0,12,12);
   		 	
 }
+
+
+
   
 function drawFinally(){
 	var context= $("#myCanvas")[0].getContext('2d');
