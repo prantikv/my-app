@@ -155,7 +155,7 @@ $("document").ready(function(){
 	var imageObj = new Image();
 	drawcanvas(imageObj);
 	//window.addEventListener("resize", resizeCanvas(imageObj));
-	$( window ).resize({msg: imageObj},resizeCanvas);
+//	$( window ).resize({msg: imageObj},resizeCanvas);
 	
 	
 });
