@@ -42,7 +42,7 @@
   		//get fresh dimentions of canvas 1 and set them on canvas 2
   		context2.canvas.width=$("#myCanvas").width();
 	  	context2.canvas.height=$("#myCanvas").height();
-      
+      $("#myCanvas2").css("position","absolute");
       // console.log("canvas width"+$("#myCanvas").width());
       // console.log("canvas context  width"+context2.canvas.width);
       // console.log("container width"+$("#container").width());
@@ -81,10 +81,13 @@
   		 	context2.fillRect(0,0,context2.canvas.width,context2.canvas.height);
   		
   	
-  		 	// var context1= $("#myCanvas")[0].getContext('2d');
-  		 	// context1.fillStyle = "#00ff00";	
-  		  // context1.fillRect(0,0,12,12);
-  		 	
+  		  var context1= $("#myCanvas")[0].getContext('2d');
+         context1.fillStyle = "#0000ff"; 
+  		 
+  		   context1.fillRect(0,0,context2.canvas.width,context2.canvas.height);
+  		 	setTimeout(function(){
+          $("#myCanvas2").css("display","none");
+        },1000);
 }
 
 
