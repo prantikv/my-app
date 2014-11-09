@@ -11,7 +11,7 @@
    
    function resizeCanvas(imageObj) {
 		drawcanvas(imageObj.data.msg);
-		textWritter();
+	textWritter();
 	}
   
  
@@ -29,9 +29,9 @@
 	var canHeight=$("#myCanvas").height();
 	
 	  	context.drawImage(imageObj, 0, 0,canWidth,canHeight);
-	  	imageObj.onload = function() {
+	  // 	imageObj.onload = function() {
 	  	
-	 	};
+	 	// };
 	
 }
       
@@ -69,12 +69,12 @@
   		context2.fillText(topTxt,centerx,startPointy1,endPointx,startPointy1,endPointx);
   		//write the bottom text
   		context2.fillText(bottomTxt,centerx,endPointy,endPointx,startPointy1,endPointx);
-  			
+  			 
   		 	context2.fillRect(0,0,10,10);
   		 	context2.stroke();
-  		 	
+  	
   		 	var context1= $("#myCanvas")[0].getContext('2d');
-  		 	context1.fillStyle = "#000";
+  		 		context2.fillStyle = "#00ff00";	
   		 	context1.fillRect(0,0,10,10);
   		 	
 }
@@ -148,7 +148,7 @@ $("document").ready(function(){
 	var imageObj = new Image();
 	drawcanvas(imageObj);
 	//window.addEventListener("resize", resizeCanvas(imageObj));
-	$( window ).resize({msg: imageObj},resizeCanvas);
+//	$( window ).resize({msg: imageObj},resizeCanvas);
 	
 	
 });
