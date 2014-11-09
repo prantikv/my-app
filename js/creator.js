@@ -1,13 +1,12 @@
-	var urlStr=window.location.search.substring(1);
-	var beginStr=window.location.search.substring(1).indexOf("%27")+3;
-	var endStr=window.location.search.substring(1).lastIndexOf("%27");
-	
-	var lenStr=endStr-beginStr;
-	var fileName=urlStr.substr(beginStr,lenStr);
+	// var urlStr=window.location.search.substring(1);
+	// var beginStr=window.location.search.substring(1).indexOf("%27")+3;
+	// var endStr=window.location.search.substring(1).lastIndexOf("%27");
+// 	
+	// var lenStr=endStr-beginStr;
+	// var fileName=urlStr.substr(beginStr,lenStr);
 	//console.log(fileName);
-		
-		
-       
+		// alert(localStorage.getItem("fileName"));
+     var fileName  =localStorage.getItem("fileName"); 
 
    
    function resizeCanvas(imageObj) {
@@ -21,15 +20,17 @@
 	var context=$("#myCanvas")[0].getContext('2d');
   	imageObj.src = 'reso/image/'+fileName;
   		
-	$("#myCanvas,#container,#myCanvas2").width(window.innerWidth);
+//	$("#myCanvas,#container,#myCanvas2").width(window.innerWidth);
 	$("#myCanvas,#container,#myCanvas2").height((3*window.innerWidth)/4);
 	context.canvas.width=$("#myCanvas").width();
 	context.canvas.height=$("#myCanvas").height();
 		
 	var canWidth=$("#myCanvas").width();
 	var canHeight=$("#myCanvas").height();
-	  	imageObj.onload = function() {
+	
 	  	context.drawImage(imageObj, 0, 0,canWidth,canHeight);
+	  	imageObj.onload = function() {
+	  	
 	 	};
 	
 }
@@ -77,7 +78,7 @@ function drawFinally(){
 	var canvas2ref=document.getElementById("myCanvas2");
 	
 	var newPat = context.createPattern(canvas2ref,"repeat");
- 	console.log(canvas2ref);
+ //	console.log(canvas2ref);
  	context.fillStyle=newPat;
  	context.rect(0,0,context.canvas.width,context.canvas.height);
 
@@ -104,7 +105,7 @@ $(document).on('pagebeforeshow','#created', function () {
 	drawFinally();
 	rawData=document.getElementById('myCanvas');
 	
-	console.log(rawData);
+	//console.log(rawData);
 	
   		image.onload=function()
   		{
@@ -125,10 +126,21 @@ $(window).on("navigate", function (event, data) {
   
  }); 
    
+   $(document).on('pagebeforehide','#created', function () {
+	alert("gonna show");
+	var imageObj = new Image();
+	drawcanvas(imageObj);
+	console.log(imageObj.src+fileName);
+	});
+   
+   
+   
        
 $("document").ready(function(){	
 	var imageObj = new Image();
 	drawcanvas(imageObj);
 	//window.addEventListener("resize", resizeCanvas(imageObj));
 	$( window ).resize({msg: imageObj},resizeCanvas);
+	
+	
 });

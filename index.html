@@ -11,9 +11,10 @@
   
 
   <script type="text/javascript" src="js/jquery.js"></script>
+    <script  type="text/javascript">
+  	</script>
   <script type="text/javascript" src="js/jquery_mobile.js"></script> 
   
-</head>
 <style>
 body{
 	text-transform:capitalize;
@@ -32,8 +33,10 @@ img{
 		width:80px;
 	}
 </style>
+</head>
+
 <body>
-<div data-role="page">
+<div id="index" data-role="page">
 
 	<div data-role="header">
 		<h1>Page Title</h1>
@@ -41,11 +44,9 @@ img{
 
 	<div data-role="content" >	
 		<ul class="content"  data-role="listview" data-inset="true" data-filter="true">
-			<li><a href="creator.html?name='meme_0'" rel="external"><img src="reso/image/akshay_02.jpg" /><h2>headder etx</h2></a></li>
-			<li><a href="creator.html?name='meme_2'"rel="external"><img src="reso/image/akshay_03.jpg" /></a></li>
-			<li><a href="creator.html?name='meme_3'"rel="external"><img src="reso/image/akshay_04.jpg" /></a></li>
-			<li><a><img src="_reso/_images/meme_4.jpg" /></a></li>
-			
+			<li><a href="#" rel="external"><img src="reso/image/akshay_02.jpg" /><h2>headder etx</h2></a></li>
+			<li><a href="#" "rel="external"><img src="reso/image/akshay_03.jpg" /></a></li>
+			<li><a href="#" "rel="external"><img src="reso/image/akshay_04.jpg" /></a></li>
 		</ul>		
 	</div><!-- /content -->
 
@@ -56,11 +57,13 @@ img{
 <script id="speakerstpl" type="text/template">
 
 			{{#memes}}
-			<li  class="ui-li-has-thumb"><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" rel="external"  href="creator.html?name='{{file}}'">
+			<li data-fileName={{file}} class="ui-li-has-thumb">
+				<a class="ui-btn ui-btn-icon-right ui-icon-carat-r" rel="external"  href="#'">
 				<img src="reso/image/{{file}}" alt="Photo of {{Title}}" />
-				<h3>{{Title}}</h3>
-			<h4>{{topText}}</h4>
-			<p>{{bottom text}}</p>
+				<h2>{{Title}}</h2>
+			<!-- <h4>{{topText}}</h4> -->
+			<!-- <p>{{bottom text}}</p> -->
+			<!-- <input id="path"  value="reso/image/{{file}}" /> -->
 			</a></li>
 		
 		
@@ -71,5 +74,6 @@ img{
 <script type="text/javascript" src="js/mustache.js"></script>
 
 <script type="text/javascript" src="js/index.js"></script>
+
 </body>
 </html>
