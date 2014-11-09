@@ -36,11 +36,15 @@
 }
       
         
-    function textWritter(tt,bt){
+    function textWritter(){
   		var context2= $("#myCanvas2")[0].getContext('2d');
   		//get fresh dimentions of canvas 1 and set them on canvas 2
   		context2.canvas.width=$("#myCanvas").width();
-		context2.canvas.height=$("#myCanvas").height();
+	  	context2.canvas.height=$("#myCanvas").height();
+      
+      // console.log("canvas width"+$("#myCanvas").width());
+      // console.log("canvas context  width"+context2.canvas.width);
+      // console.log("container width"+$("#container").width());
 		//get data from input fields
   		var topTxt=$("#toptext").val();
   		var bottomTxt=$("#bottomtext").val();
@@ -148,7 +152,7 @@ $("document").ready(function(){
 	var imageObj = new Image();
 	drawcanvas(imageObj);
 	//window.addEventListener("resize", resizeCanvas(imageObj));
-//	$( window ).resize({msg: imageObj},resizeCanvas);
+	$( window ).resize({msg: imageObj},resizeCanvas);
 	
 	
 });
