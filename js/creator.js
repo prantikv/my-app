@@ -37,10 +37,10 @@
       
         
     function textWritter(tt,bt){
-  		var context= $("#myCanvas2")[0].getContext('2d');
+  		var context2= $("#myCanvas2")[0].getContext('2d');
   		//get fresh dimentions of canvas 1 and set them on canvas 2
-  		context.canvas.width=$("#myCanvas").width();
-		context.canvas.height=$("#myCanvas").height();
+  		context2.canvas.width=$("#myCanvas").width();
+		context2.canvas.height=$("#myCanvas").height();
 		//get data from input fields
   		var topTxt=$("#toptext").val();
   		var bottomTxt=$("#bottomtext").val();
@@ -49,28 +49,34 @@
   		bottomTxt =(bottomTxt.length==0||bottomTxt===undefined)?"bottom text":bottomTxt;
   	
   		//clear the canvas	 		
-  		context.clearRect (0,0,context.canvas.width,context.canvas.height);
+  		context2.clearRect (0,0,context2.canvas.width,context2.canvas.height);
   		//set styles
-    	context.strokeStyle = "#FFffff";
-    	context.fillStyle = "#FFffff";
-    	context.font="bold 25px verdana";
-    	context.textBaseline="top";
-    	context.textAlign = "center";
+    	context2.strokeStyle = "#FFffff";
+    	context2.fillStyle = "#FFffff";
+    	context2.font="bold 25px verdana";
+    	context2.textBaseline="top";
+    	context2.textAlign = "center";
     	
     	//calculat points based on the canvas size
-    	var startPointx1=(context.canvas.width*5)/100;
-    	var startPointy1=(context.canvas.height*2)/100;
-    	var centerx=context.canvas.width/2;
+    	var startPointx1=(context2.canvas.width*5)/100;
+    	var startPointy1=(context2.canvas.height*2)/100;
+    	var centerx=context2.canvas.width/2;
   		
-  		var endPointx=(context.canvas.width*90)/100;
-    	var endPointy=(context.canvas.height*90)/100
+  		var endPointx=(context2.canvas.width*90)/100;
+    	var endPointy=(context2.canvas.height*90)/100;
   		
   		//write the top text
-  		context.fillText(topTxt,centerx,startPointy1,endPointx,startPointy1,endPointx);
+  		context2.fillText(topTxt,centerx,startPointy1,endPointx,startPointy1,endPointx);
   		//write the bottom text
-  		context.fillText(bottomTxt,centerx,endPointy,endPointx,startPointy1,endPointx);
-  	
-  		 		
+  		context2.fillText(bottomTxt,centerx,endPointy,endPointx,startPointy1,endPointx);
+  			
+  		 	context2.fillRect(0,0,10,10);
+  		 	context2.stroke();
+  		 	
+  		 	var context1= $("#myCanvas")[0].getContext('2d');
+  		 	context1.fillStyle = "#000";
+  		 	context1.fillRect(0,0,10,10);
+  		 	
 }
   
 function drawFinally(){
@@ -89,6 +95,8 @@ function drawFinally(){
   
   
 $("#bottomtext,#toptext").on("keyup",textWritter);
+
+
  
     function downloadCanvas(link, canvasId, filename) {
     link.href = document.getElementById(canvasId).toDataURL();
