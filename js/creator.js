@@ -51,35 +51,38 @@
   		//check to see if field are empty of undefined
   		topTxt =(topTxt.length==0||topTxt===undefined)?"top text":topTxt;
   		bottomTxt =(bottomTxt.length==0||bottomTxt===undefined)?"bottom text":bottomTxt;
+
+      console.log(topTxt);
   	
   		//clear the canvas	 		
-  		context2.clearRect (0,0,context2.canvas.width,context2.canvas.height);
-  		//set styles
+  		// context2.clearRect (0,0,context2.canvas.width,context2.canvas.height);
+  		// //set styles
     	context2.strokeStyle = "#FFffff";
     	context2.fillStyle = "#FFffff";
     	context2.font="bold 25px verdana";
     	context2.textBaseline="top";
     	context2.textAlign = "center";
     	
-    	//calculat points based on the canvas size
-    	var startPointx1=(context2.canvas.width*5)/100;
-    	var startPointy1=(context2.canvas.height*2)/100;
-    	var centerx=context2.canvas.width/2;
+    // 	//calculat points based on the canvas size
+    // 	var startPointx1=(context2.canvas.width*5)/100;
+    // 	var startPointy1=(context2.canvas.height*2)/100;
+    // 	var centerx=context2.canvas.width/2;
   		
-  		var endPointx=(context2.canvas.width*90)/100;
-    	var endPointy=(context2.canvas.height*90)/100;
+  		// var endPointx=(context2.canvas.width*90)/100;
+    // 	var endPointy=(context2.canvas.height*90)/100;
   		
-  		//write the top text
-  		context2.fillText(topTxt,centerx,startPointy1,endPointx,startPointy1,endPointx);
-  		//write the bottom text
-  		context2.fillText(bottomTxt,centerx,endPointy,endPointx,startPointy1,endPointx);
+  		// //write the top text
+  	 context2.fillText(topTxt,50,50,100,100);
+
+  		// //write the bottom text
+  		// context2.fillText(bottomTxt,centerx,endPointy,endPointx,startPointy1,endPointx);
   			 
   		 	context2.fillRect(0,0,10,10);
-  		 	context2.stroke();
+  		
   	
   		 	var context1= $("#myCanvas")[0].getContext('2d');
   		 		context2.fillStyle = "#00ff00";	
-  		 	context1.fillRect(0,0,10,10);
+  		  context1.fillRect(0,0,10,10);
   		 	
 }
   
