@@ -81,8 +81,8 @@
   		
   	
   		 	var context1= $("#myCanvas")[0].getContext('2d');
-  		 		context2.fillStyle = "#00ff00";	
-  		  context1.fillRect(0,0,10,10);
+  		 		context1.fillStyle = "#00ff00";	
+  		  context1.fillRect(0,0,12,12);
   		 	
 }
   
